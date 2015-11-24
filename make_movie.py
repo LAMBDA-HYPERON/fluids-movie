@@ -26,22 +26,22 @@ def main ():
 	# vorticity dimension: Time, st_ocean (pressure), yt_ocean (latitude), xt_ocean (longitude)
 	vorticity = vorticity[:]
 	
-	#fig = plt.figure()
-	#images = []
+	fig = plt.figure()
+	images = []
 	
 	# Generate the plot at pressure level = 0
 	for t in range(0,vorticity.shape[0]):
-		plt.imshow(vorticity[t,0,:,:])
-		#img = plt.imshow(vorticity[t,0,:,:])
-		#images.append([img])
+		#plt.imshow(vorticity[t,0,:,:])
+		img = plt.imshow(vorticity[t,0,:,:])
+		images.append([img])
 		# To show plot immediately, use:
 		# plt.show()
 		# Save the plot as an image file
-		plt.savefig('vorticity'+str(t).zfill(3)+'.png')
-		plt.close()
+		#plt.savefig('vorticity'+str(t).zfill(3)+'.png')
+		#plt.close()
 
-	#ani = animation.ArtistAnimation(fig,images,interval=20)
-	#plt.show()
+	ani = animation.ArtistAnimation(fig,images,interval=20)
+	plt.show()
 	
 	# Close the netcdf file.
 	f.close()
